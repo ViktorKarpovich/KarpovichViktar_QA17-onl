@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Task1 {
     static int n;
     public static void main(String[] args) {
+        System.out.print("Input the massive size: ");
         makeMassiveUsingKeybord();
         int array[] = new int [n];
         int el = 0;
@@ -18,10 +19,8 @@ public class Task1 {
             System.out.print("Enter element " + el + ": ");
             array[i] = makeMassiveUsingKeybord();
         }
-        /*for (int i = 0; i < array.length; i++){
-            System.out.println(array[i]);
-        }
-        System.out.println("Inputed massive: ");*/
+        printMassive(array);
+
     }
 
     public static int makeMassiveUsingKeybord(){
@@ -29,7 +28,15 @@ public class Task1 {
         n = sc.nextInt();
         return n;
     }
-     public static String printmassive(){
+     public static void printMassive(int[] array){
+        System.out.println("Inputed massive: ");
+        for (int i = 0; i < array.length; i++){
+            System.out.print(array[i]);
+            if (i < array.length-1){
+                System.out.print(",");
+            }
+        }
+
 
     }
 }

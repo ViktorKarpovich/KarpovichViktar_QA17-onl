@@ -20,6 +20,9 @@ public class Task1 {
             array[i] = makeMassiveUsingKeybord();
         }
         printMassive(array);
+        sortMassiveByBubbleWay(array);
+        printSortedDescMassive(array);
+
 
     }
 
@@ -28,14 +31,29 @@ public class Task1 {
         n = sc.nextInt();
         return n;
     }
-     public static void printMassive(int[] array){
+     public static void printMassive(int array[]){
         System.out.println("Inputed massive: ");
-        for (int i = 0; i < array.length; i++){
+         for (int i = 0; i < array.length; i++){
             System.out.print(array[i]);
             if (i < array.length-1){
                 System.out.print(",");
             }
         }
+    }
+
+    public static void sortMassiveByBubbleWay(int array[]){
+        for (int i = 0; i < array.length-1; i++){
+            for (int k = array.length-1; k > i; k--){
+                if (array[k-1] > array[k]) {
+                    int tmp = array[k-1];
+                    array[k-1] = array[k];
+                    array[k] = tmp;
+                }
+            }
+        }
+    }
+
+    public static void printSortedDescMassive (){
 
 
     }

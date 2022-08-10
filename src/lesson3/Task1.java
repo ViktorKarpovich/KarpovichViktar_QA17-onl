@@ -32,7 +32,7 @@ public class Task1 {
         return n;
     }
      public static void printMassive(int array[]){
-        System.out.print("Inputed massive: ");
+        System.out.print("Your base massive is: ");
          for (int i = 0; i < array.length; i++){
             System.out.print(array[i]);
             if (i < array.length-1){
@@ -45,7 +45,7 @@ public class Task1 {
     public static void sortMassiveByBubbleWay(int array[]){
         for (int i = 0; i < array.length-1; i++){
             for (int k = array.length-1; k > i; k--){
-                if (array[k-1] > array[k]) {
+                if (array[k-1] < array[k]) {
                     int tmp = array[k-1];
                     array[k-1] = array[k];
                     array[k] = tmp;
@@ -55,7 +55,7 @@ public class Task1 {
     }
 
     public static void printSortedDescMassive(int array[]){
-        System.out.print("Sorted massive: [");
+        System.out.print("Sorted massive DESC: [");
         for (int i = 0; i < array.length; i++){
             System.out.print(array[i]);
             if (i < array.length-1){

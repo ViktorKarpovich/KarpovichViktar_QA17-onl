@@ -6,7 +6,11 @@ package lesson4;
 Вывести на экран изначальную матрицу. Значения заполнить рандомом, ограничив до
 легчосчитаемого но не ниже значения 5
 Вывести каждую сумму отдельно (с пояснение, что оно такое)
-Вывести итоговый ответ. */
+Вывести итоговый ответ.
+Для звёздочки, если квадратная - вывести индекс и значение ее центра, если центр невыявляем,
+сделать матрицу пригодной (удалить столбец справа и предпоследнюю строку) для этого и
+вывести получившуюся. А если неквадратная – сделать ее размер равным наименшему значению
+и найти центр.*/
 
 import java.util.Random;
 import java.util.Scanner;
@@ -21,7 +25,10 @@ public class Task1 {
         int [][] array = new int[n][m];
         arrayFilling(array);
         outputArray(array);
-        matrixCalculations(array);
+        if(n == m){
+            matrixCalculations(array);
+        }
+        taskWithStar(array);
 
     }
 
@@ -50,13 +57,15 @@ public class Task1 {
             }
             System.out.println();
         }
+        System.out.println();
     }
+
 
     public static void matrixCalculations(int array[][]){
 
         int sumElementsSecondString = 0;
         for(int i = 1; i < 2; i++){
-            for (int j = 0; j < array.length; j++){
+            for (int j = 0; j < array[i].length; j++){
                 sumElementsSecondString += array[i][j];
             }
         }
@@ -86,5 +95,57 @@ public class Task1 {
             System.out.println("Матрица НЕ квадратная, результат вычислений: " + result2);
         }
     }
+
+    public static void taskWithStar(int array[][]){
+        if (n % 2 != 0 & m % 2 != 0){
+            int index = (m-1)/2;
+            System.out.printf("\nИндекс центра матрицы [%d][%d] и число по этому индексу: ", index, index);
+            System.out.print(array[index][index]);
+        }
+        else if (n % 2 != 0.5 & m % 2 != 0){
+            for (int i = 0; i < n-1; i++){
+                for (int j = 0; j < n-1; j++){
+                    System.out.print(array[i][j] + " ");
+                }
+                System.out.println();
+                indexMatrix(array);
+            }
+            indexMatrix(array);
+            System.out.println("Матрица обрезана, результат новой матрицы");
+        }
+
+        else if (n % 2 != 0 & m % 2 != 0.5) {
+            for (int i = 0; i < m - 1; i++) {
+                for (int j = 0; j < m - 1; j++) {
+                    System.out.print(array[i][j] + " ");
+                }
+                System.out.println();
+            }
+            System.out.println("Матрица обрезана, результат новой матрицы");
+            indexMatrix(array);
+        }
+        else {
+            for (int i = 0; i < n-2; i++) {
+                System.out.println();
+                for (int j = 0; j < m-1; j++)
+                    System.out.print(array[i][j] + " ");
+            }
+            for (int i = n-1; i < n; i++) {
+                System.out.println();
+                for (int j = 0; j < m-1; j++)
+                    System.out.print(array[i][j] + " ");
+            }
+            System.out.println();
+            System.out.println("Матрица обрезана, результат новой матрицы");
+            indexMatrix(array);
+        }
+    }
+
+    public static void indexMatrix(int array[][]) {
+        int index = (m-1)/2;
+        System.out.printf("\nИндекс центра матрицы [%d][%d] и число по этому индексу: ", index, index);
+        System.out.print(array[index][index]);
+    }
+
 
 }

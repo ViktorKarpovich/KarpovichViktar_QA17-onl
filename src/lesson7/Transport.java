@@ -1,11 +1,15 @@
 package lesson7;
 
+
 public abstract class Transport {
 
+    final double WATT = 0.74;
     private int horsePower;
     private int maxSpeed;
     private int weight;
     private String brand;
+
+    public abstract void characteristics();
 
     public Transport (int horsePower, int maxSpeed, int weight, String brand){
         this.horsePower = horsePower;

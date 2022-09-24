@@ -28,7 +28,7 @@ public class Univer {
         this.name = name;
     }
 
-    public String getAddress(Student student, Faculty faculty) {
+    public String getAddress() {
         return address;
     }
 
@@ -116,6 +116,7 @@ public class Univer {
             }
         }
         return null;
+
 
 
     }

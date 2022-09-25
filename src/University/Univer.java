@@ -1,8 +1,10 @@
 package University;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Univer {
+public class Univer{
     private String name;
     private String address;
     private String phone;
@@ -15,6 +17,8 @@ public class Univer {
         this.address = address;
         this.phone = phone;
     }
+
+    Faculty fac = new Faculty();
 
     public Univer() {
 
@@ -118,6 +122,25 @@ public class Univer {
         return null;
 
 
+    }
 
+    public void getStudentsPlusTeachers(){
+        Map<Student, ArrayList<Teacher>> StudentsPlusTeachers = new HashMap<>();
+        //ArrayList<Teacher> teachlist = new ArrayList<>();
+        //teachlist = fac.getAllTeachers();
+        StringBuilder sb = new StringBuilder();
+        for (Student student : studentArrayList){
+            StudentsPlusTeachers.put(student, fac.getTeachersArrayList());
+        }
+        for (Student student : StudentsPlusTeachers.keySet()){
+            for (int i = 0; i < StudentsPlusTeachers.get(student).size(); i++){
+                sb.append(StudentsPlusTeachers.get(student).get(i).getTeacherName());
+            }
+            System.out.println("Names of students: " + student.getStudentName() + "\nNames of teachers: "
+                    + fac.getTeachers(fac.getAllTeachers()));
+        }
+        /*for (int i = 0; i < teachlist.size(); i++){
+            System.out.println(teachlist.get(i));
+        }*/
     }
 }

@@ -68,7 +68,7 @@ public class Main {
         }
 
 
-        System.out.println("Do you want to find a student by name? Input 1");
+        /*System.out.println("Do you want to find a student by name? Input 1");
         int n = sc.nextInt();
         try {
             if (n == 1) {
@@ -80,7 +80,8 @@ public class Main {
         }
         catch (WrongOptionException woe){
             System.out.println(woe.message);
-        }
+        }*/
+        univer.getStudentsPlusTeachers();
 
     }
 }

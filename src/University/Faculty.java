@@ -9,7 +9,6 @@ public class Faculty {
     Scanner sc = new Scanner(System.in);
     private String facultyName;
     private long facultyId;
-     Univer un = new Univer();
 
 
     private ArrayList<Teacher> teachersArrayList = new ArrayList<>();
@@ -69,6 +68,15 @@ public class Faculty {
         }
         return null;
     }
+
+    public ArrayList<Teacher> getTeachers(ArrayList<Teacher> teachersArrayList){
+        for (int i = 0; i < teachersArrayList.size(); i++){
+            System.out.println(teachersArrayList.get(i));
+            }
+        return teachersArrayList;
+    }
+
+
 
     public void removeTeacher(long id){
         for (int i = 0; i < teachersArrayList.size(); i++){
